@@ -3,14 +3,59 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  padding: 24px;
   background-color: #ffffff;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
-h1 {
-  color: #1976d2;
-  font-size: 3rem;
-  font-weight: 500;
-  margin: 0;
-  text-align: center;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+.card {
+  width: min(720px, 100%);
+  background: #ffffff;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(17, 24, 39, 0.06);
+  padding: 18px 18px 14px;
+}
+
+.tenant-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tenant-label {
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: rgba(17, 24, 39, 0.75);
+  min-width: 60px;
+}
+
+.tenant-select {
+  flex: 1;
+  height: 34px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(17, 24, 39, 0.16);
+  background: #ffffff;
+  color: #111827;
+  outline: none;
+  transition: border-color 120ms ease, box-shadow 120ms ease;
+}
+
+.tenant-select:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.12);
+}
+
+.tenant-select:disabled {
+  background: rgba(17, 24, 39, 0.04);
+  color: rgba(17, 24, 39, 0.7);
+  cursor: not-allowed;
+}
+
+.helper {
+  margin-top: 10px;
+  font-size: 13px;
+  color: rgba(17, 24, 39, 0.75);
 }

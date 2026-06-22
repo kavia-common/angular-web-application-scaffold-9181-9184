@@ -1,3 +1,27 @@
 <div class="container">
-  <h1>{{ title }}</h1>
+  <div class="card">
+    <div class="tenant-row">
+      <label class="tenant-label" for="tenantSelect">NATCO</label>
+
+      <select
+        id="tenantSelect"
+        class="tenant-select"
+        [ngModel]="selectedTenantId()"
+        (ngModelChange)="onTenantChange($event)"
+        [disabled]="tenantOptions().length === 1"
+      >
+        <option value="" [disabled]="true">Select NATCO</option>
+        <option *ngFor="let t of tenantOptions()" [value]="t.id">
+          {{ t.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="helper" *ngIf="selectedTenant() as tenant; else noTenant">
+      Selected tenant: <strong>{{ tenant.name }}</strong>
+    </div>
+    <ng-template #noTenant>
+      <div class="helper">No tenant selected.</div>
+    </ng-template>
+  </div>
 </div>
