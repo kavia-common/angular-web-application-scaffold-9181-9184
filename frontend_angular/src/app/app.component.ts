@@ -44,8 +44,13 @@ export class AppComponent {
 
       if (options.length === 1) {
         const only = options[0];
-        if (current !== only.id) {
-          this.selectedTenantId.set(only.id);
+        // Important: only default when there is no current selection.
+        // This mirrors a "prefill" behavior and avoids clobbering an explicit selection
+        // (or a subsequent patchValue coming from an edit/prefill flow).
+        if (!current) {
+          // Schedule on microtask to avoid "changed after checked" timing issues in
+          // real-world forms where options and the UI control initialize asynchronously.
+          Promise.resolve().then(() => this.selectedTenantId.set(only.id));
         }
         return;
       }
